@@ -19,30 +19,32 @@ Apos esse comando voce pode usar o comando *choco install* para instalar program
 ### Node
 Para facilitar o desenvolvimento, utilizaremos o NVM que instala o node na versao selecionada  
 
+#### Instalar **[NVM](https://nodejs.org/en/download/package-manager/#nvm)**  
 
-1. Instalar **[NVM](https://nodejs.org/en/download/package-manager/#nvm)**  
 O windows tem uma versao de nvm  
-`choco install nvm -y`
+`choco install nvm -y`  
+
 O comando a seguir serve para dizer para o terminal que um novo programa foi instalado no windows , a outra alternativca seria abrir e fechar o terminal.  
 
-`./RefreshEnv.cmd`    
+`./RefreshEnv.cmd`  
 
-Instalar **nodejs 16**  
+#### Instalar nodejs 16  
+
 `nvm install 16`  
-Listar a versao do node que o nvm instalou    
+
+Listar a versao do node que o nvm instalou:  
+
 `nvm list`
+
 Em seguida selecionar o nodejs instalado  
 `nvm use 16.16.0`  
 
 ### YARN
 
-2. Instalacao do [YARN](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)  
+Instalacao do [YARN](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)  
 
 `npm install --global yarn`  
 
-### VTEX  
+### VTEX CLI
 
-3. Instalar o VTEX Toolbelt 
-
- `yarn global add vtex`  
-
+Instalar o VTEX CLI no Windows -  [download](https://vtex.io/vtexcli/install/win-x64)  
