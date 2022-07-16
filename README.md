@@ -1,6 +1,6 @@
 # desafio-vtex-bitsized3  
 
-## Pre requisitos  
+## Pré-requisitos  
 
 [VTEX IO & VTEX Toolbelt](https://cdn.allbound.com/vtex-ab/2021/11/26210724/Inicializando-VTEX-IO-VTEX-Toolbelt-101-1.pdf)
 
@@ -21,7 +21,6 @@ Execute o comando abaixo para instalar o cliente do git
 
 `choco install git -y`  
 
-
 ### Node
 
 Para facilitar o desenvolvimento, utilizaremos o NVM que instala o node na versao selecionada  
@@ -30,9 +29,8 @@ Para facilitar o desenvolvimento, utilizaremos o NVM que instala o node na versa
 
 O windows tem uma versao de nvm  
 `choco install nvm -y`  
-
-O comando a seguir serve para dizer para o terminal que um novo programa foi instalado no windows , a outra alternativca seria abrir e fechar o terminal.  
-
+> **Importante:**
+O comando a seguir serve para dizer para o terminal que um novo programa foi instalado no windows , a outra alternativa seria abrir e fechar o terminal.  
 `./RefreshEnv.cmd`  
 
 #### Instalar nodejs 16  
