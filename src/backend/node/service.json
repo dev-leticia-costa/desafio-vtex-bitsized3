@@ -1,13 +1,13 @@
 {
-  "memory": 128,
+  "memory": 256,
   "ttl": 10,
-  "timeout": 10,
+  "timeout": 2,
   "minReplicas": 2,
-  "maxReplicas": 10,
-  "workers": 4,
+  "maxReplicas": 4,
+  "workers": 1,
   "routes": {
-    "analytics": {
-      "path": "/_v/app/analytics/realTime",
+    "status": {
+      "path": "/_v/status/:code",
       "public": true
     }
   }
