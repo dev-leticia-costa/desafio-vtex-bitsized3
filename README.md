@@ -34,9 +34,13 @@ Listar a versao do node que o nvm instalou
 Em seguida selecionar o nodejs instalado  
 `nvm use 16.16.0`  
 
+### YARN
+
 2. Instalacao do [YARN](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)  
 
 `npm install --global yarn`  
+
+### VTEX  
 
 3. Instalar o VTEX Toolbelt 
 
