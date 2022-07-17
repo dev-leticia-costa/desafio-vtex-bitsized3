@@ -5,12 +5,14 @@
   },
   "devDependencies": {
     "@types/co-body": "^0.0.3",
-    "@types/node": "12.x",
+    "@types/node": "^12.0.0",
     "@vtex/api": "6.45.12",
     "eslint": "^6.3.0",
     "eslint-config-vtex": "^11.0.0",
     "prettier": "^1.18.2",
-    "typescript": "3.9.7"
+    "typescript": "3.9.7",
+    "vtex.backend-course": "https://bitsizedvtexservice--bitsized.myvtex.com/_v/private/typings/linked/v1/vtex.backend-course@0.0.2+build1658041977/public/_types/react",
+    "vtex.events-example": "https://bitsizedvtexservice--bitsized.myvtex.com/_v/private/typings/linked/v1/vtex.events-example@0.0.1+build1658036521/public/_types/react"
   },
   "resolutions": {
     "**/**/lodash": "^4.17.19"
