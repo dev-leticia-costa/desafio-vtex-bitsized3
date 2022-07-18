@@ -1,26 +1,40 @@
-export async function orders(ctx: Context, next: () => Promise<any>) {
-  const {
-    clients: { oms },
-  } = ctx;
-  ctx.status = 200;
-  if (ctx.method == "GET") {
-    let pedidos = await (await oms.listOrders()).list.filter(
-      (pedido) => pedido.status !== "order-completed"
-    );
-    ctx.body = pedidos;
-  }
-  if (ctx.method === "POST") {
-    console.log("ORDER STATE CHANGED");
-    let body: any[] = [];
-    let stringBody = "";
+export async function orders(ctx: Context, next: () => Promise<any>)
+{
+    const {clients: { oms },} = ctx;
+    
+    ctx.status = 200;
 
-    ctx.req
-      .on("data", (chunk) => body.push(chunk))
-      .on("end", () => {
-        stringBody = JSON.parse(Buffer.concat(body).toString());
-        console.log(stringBody);
-      });
-  }
+    if (ctx.method == "GET")
+    {
+        let pedidos = await (await oms.listOrders()).list.filter(
+            (pedido) => pedido.status !== "order-completed"
+        );
+        ctx.body = pedidos;
+    }
+    if(ctx.method === "POST")
+    {
+        console.log("ORDER STATE CHANGED");
+        let body: any[] = [];
+        let orderState = null;
+
+        ctx.req
+        .on("data", (chunk) => body.push(chunk))
+        .on("end", async () =>
+        {
+            orderState = JSON.parse(Buffer.concat(body).toString());
+            
+            if(orderState.State == "waiting-ffmt-authorization") //payment-approved
+            {
+                const orderData   = await oms.order(orderState.OrderId),
+                      totals      = orderData.totals.filter(data => data.id == "Items"),
+                      priceTotals = totals[0].value,
+                      price       = priceTotals.toString().slice(0, -2),
+                      clientId    = orderData.clientProfileData.userProfileId
+
+                console.log(`Preço: ${price}`, `ID do Cliente: ${clientId}`)
+            }
+        });
+    }
   //ctx.set("cache-control", "no-cache");
   await next();
 }
