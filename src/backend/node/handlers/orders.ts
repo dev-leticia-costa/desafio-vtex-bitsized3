@@ -1,6 +1,6 @@
 export async function orders(ctx: Context, next: () => Promise<any>)
 {
-    const {clients: { oms },} = ctx;
+    const {clients: { oms, externalMasterdata }} = ctx;
     
     ctx.status = 200;
 
@@ -32,6 +32,12 @@ export async function orders(ctx: Context, next: () => Promise<any>)
                       clientId    = orderData.clientProfileData.userProfileId
 
                 console.log(`Preço: ${price}`, `ID do Cliente: ${clientId}`)
+
+                const testeData = await externalMasterdata.setPoints(parseInt(price), clientId, orderData.orderId)
+
+                console.log(testeData)
+
+                console.log(await externalMasterdata.getPoint(clientId))
             }
         });
     }
