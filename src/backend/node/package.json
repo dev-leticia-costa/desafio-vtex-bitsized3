@@ -13,7 +13,7 @@
     "eslint-config-vtex": "^11.0.0",
     "prettier": "^1.18.2",
     "typescript": "3.9.7",
-    "vtex.backend-course": "https://testhenriquebackend--bitsized.myvtex.com/_v/private/typings/linked/v1/vtex.backend-course@0.0.2+build1658208394/public/@types/vtex.backend-course"
+    "vtex.backend-course": "https://backendbitsized03--bitsized.myvtex.com/_v/private/typings/linked/v1/vtex.backend-course@0.0.2+build1658295290/public/@types/vtex.backend-course"
   },
   "resolutions": {
     "**/**/lodash": "^4.17.19"
