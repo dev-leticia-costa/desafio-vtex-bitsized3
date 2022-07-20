@@ -33,10 +33,14 @@
     },
     {
       "name": "OMSViewer"
+    },
+    {
+      "name": "masterdata-entity-read-write",
+      "attrs": {
+        "entity": "BT"
+      }
     }
   ],
-  "dependencies": {
-    "vtex.events-example": "0.x"
-  },
+  "dependencies": {},
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }

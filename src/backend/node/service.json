@@ -19,6 +19,10 @@
     "orders": {
       "path": "/_v/app/orders",
       "public": true
+    },
+    "points": {
+      "path": "/_v/app/points/debit",
+      "public": true
     }
   }
 }

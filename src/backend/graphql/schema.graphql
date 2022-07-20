@@ -1,3 +1,24 @@
+type PointsOrdersView {
+  clientId: String
+  orderId: String
+  points: Int
+}
+
+input DebitValues {
+  clientId: String
+  points: Int
+}
+
+type PointsClient {
+  clientId: String
+  points: Int
+}
+
 type Query {
-    productList(topN: Int): [ProductView]
+  pointsOrdersList: [PointsOrdersView]
+  pointsClientById(clientId: String): PointsClient
+}
+
+type Mutation {
+  debitaPoints(debitValues: DebitValues): PointsClient
 }

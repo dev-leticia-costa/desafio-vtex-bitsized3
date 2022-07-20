@@ -5,40 +5,29 @@ import {
   ParamsContext,
   RecorderState,
   method,
-  EventContext,
-} from "@vtex/api";
-import { Clients } from "./clients";
-import { analytics } from "./handlers/analytics";
-import { orders } from "./handlers/orders";
-import { updateLiveUsers } from "./event/liveUsersUpdate";
-import { productList } from "./resolvers/products";
+} from '@vtex/api'
+import { Clients } from './clients'
+import { analytics } from './handlers/analytics'
+import { orders } from './handlers/orders'
+import { debitaPontosRest } from './handlers/debitaPontosRest'
+import { pointsOrdersList } from './resolvers/pointsOrdersList'
+import { pointsClientById } from './resolvers/pointsClientById'
+import { debitaPoints } from './resolvers/debitaPoints'
 
 // Create a LRU memory cache for the Status client.
 // The @vtex/api HttpClient respects Cache-Control headers and uses the provided cache.
-const memoryCache = new LRUCache<string, any>({ max: 5000 });
-metrics.trackCache("status", memoryCache);
+const memoryCache = new LRUCache<string, any>({ max: 5000 })
+metrics.trackCache('status', memoryCache)
 
 declare global {
-  type Context = ServiceContext<Clients, State>;
-
-  interface StatusChangeContext extends EventContext<Clients> {
-    body: {
-      domain: string;
-      orderId: string;
-      currentState: string;
-      lastState: string;
-      currentChangeDate: string;
-      lastChangeDate: string;
-    };
-  }
-
+  type Context = ServiceContext<Clients, State>
   interface State extends RecorderState {
-    code: number;
+    code: number
   }
 }
 
-const THREE_SECONDS_MS = 3 * 1000;
-const CONCURRENCY = 10;
+const THREE_SECONDS_MS = 3 * 1000
+const CONCURRENCY = 10
 
 export default new Service<Clients, State, ParamsContext>({
   clients: {
@@ -66,15 +55,19 @@ export default new Service<Clients, State, ParamsContext>({
       GET: [orders],
       POST: [orders],
     }),
-  },
-  events: {
-    liveUsersUpdate: updateLiveUsers
+    points: method({
+      GET: [debitaPontosRest],
+    }),
   },
   graphql: {
     resolvers: {
       Query: {
-        productList,
+        pointsOrdersList,
+        pointsClientById,
+      },
+      Mutation: {
+        debitaPoints,
       },
     },
   },
-});
+})
