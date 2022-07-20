@@ -1,0 +1,5 @@
+interface setPoints {
+  clientId?: string
+  orderId?: string
+  points?: string
+}// aceitar nulo e validar se length > 0

@@ -23,7 +23,7 @@ export async function orders(ctx: Context, next: () => Promise<any>)
         {
             orderState = JSON.parse(Buffer.concat(body).toString());
             
-            if(orderState.State == "waiting-ffmt-authorization") //payment-approved
+            if(orderState.State == "payment-approved") //alterei para payment-approved
             {
                 const orderData   = await oms.order(orderState.OrderId),
                       totals      = orderData.totals.filter(data => data.id == "Items"),

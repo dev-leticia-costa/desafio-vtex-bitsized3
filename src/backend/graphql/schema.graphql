@@ -1,3 +1,28 @@
-type Query {
-    productList(topN: Int): [ProductView]
+input SavePoints {
+  clientId: String
+  orderId: String
+  points: number
+ 
 }
+
+type SchemaPoints {
+  clientId: String
+  orderId: String
+  points: number
+  id: String
+}
+
+type ReturnPointsSave {
+  Id: String
+  DocumentId: String
+  Href: String
+}
+
+type Query {
+  searchMasterdata: [SchemaPoints]
+}
+
+type Mutation {
+  saveMasterdata(saveData: SavePoints): ReturnPointsSave
+}
+ 

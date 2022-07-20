@@ -31,6 +31,14 @@
         "path": "/*"
       }
     },
+
+    {
+      "name": "masterdata-entity-read-write",
+      "attrs": {
+        "entity": "BT"
+      }
+    },
+    
     {
       "name": "OMSViewer"
     }
