@@ -1,5 +1,4 @@
 import { ExternalClient, InstanceOptions, IOContext } from '@vtex/api'
-
 export class PointsMasterdata extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
     super(`http://${context.account}.vtexcommercestable.com.br`, context, {
